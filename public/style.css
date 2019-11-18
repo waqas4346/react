@@ -1,0 +1,142 @@
+@font-face {
+  font-family: 'dramatime';
+  src:  url('fonts/dramatime.eot?dppn3y');
+  src:  url('fonts/dramatime.eot?dppn3y#iefix') format('embedded-opentype'),
+    url('fonts/dramatime.ttf?dppn3y') format('truetype'),
+    url('fonts/dramatime.woff?dppn3y') format('woff'),
+    url('fonts/dramatime.svg?dppn3y#dramatime') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="dt-"], [class*=" dt-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'dramatime' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dt-power-switch:before {
+  content: "\e932";
+}
+.dt-play:before {
+  content: "\e9c2";
+}
+.dt-chevron-left:before {
+  content: "\ea44";
+}
+.dt-chevron-right:before {
+  content: "\ea46";
+}
+.dt-arrow-left:before {
+  content: "\ea4b";
+}
+.dt-arrow-right:before {
+  content: "\ea4c";
+}
+.dt-icon-user:before {
+  content: "\e901";
+}
+.dt-vb-icon-play:before {
+  content: "\e902";
+  color: #fff;
+}
+.dt-btn-menu:before {
+  content: "\e900";
+  color: #fdfdfe;
+}
+.dt-cont-watching-arrows:before {
+  content: "\e905";
+  color: #fff;
+}
+.dt-hamburger8:before {
+  content: "\e906";
+  color: #fefefe;
+}
+.dt-icon-back-arrow:before {
+  content: "\e907";
+  color: #fefefe;
+}
+.dt-icon-carrier:before {
+  content: "\e908";
+  color: #fefefe;
+}
+.dt-icon-chromecast:before {
+  content: "\e909";
+  color: #fefefe;
+}
+.dt-icon-down-arrow:before {
+  content: "\e90a";
+  color: #fff;
+}
+.dt-icon-download:before {
+  content: "\e90b";
+}
+.dt-icon-dramas:before {
+  content: "\e90c";
+}
+.dt-icon-fav:before {
+  content: "\e90d";
+  color: #fff;
+}
+.dt-icon-home:before {
+  content: "\e90e";
+}
+.dt-icon-invite:before {
+  content: "\e90f";
+}
+.dt-icon-language:before {
+  content: "\e910";
+}
+.dt-icon-logout:before {
+  content: "\e911";
+}
+.dt-icon-movies:before {
+  content: "\e912";
+}
+.dt-icon-new-release:before {
+  content: "\e913";
+}
+.dt-icon-notification .path1:before {
+  content: "\e914";
+  color: rgb(4, 9, 28);
+}
+.dt-icon-notification .path2:before {
+  content: "\e915";
+  margin-left: -0.8544921875em;
+  color: rgb(238, 238, 238);
+}
+.dt-icon-notification .path3:before {
+  content: "\e916";
+  margin-left: -0.8544921875em;
+  color: rgb(4, 9, 28);
+}
+.dt-icon-play:before {
+  content: "\e917";
+  color: #fff;
+}
+.dt-icon-search:before {
+  content: "\e918";
+  color: #fefefe;
+}
+.dt-icon-select:before {
+  content: "\e919";
+}
+.dt-icon-settings:before {
+  content: "\e91a";
+}
+.dt-icon-share:before {
+  content: "\e91b";
+}
+.dt-icon-video-songs:before {
+  content: "\e91c";
+}
