@@ -131,7 +131,7 @@ const RelatedContent = (props) => {
                                 )
                             })
                                 :
-                                loading === false && <p className='text-center text-white mt-5'>No related content to show.</p>
+                                loading === false && <li className="col-lg-12 col-md-6 col-sm-12 col-xs-12 text-left mt-5" style={{opacity: 0.5}}>{i18n.norelatedcontent}</li>
                         }
                     </ul>
                     {((currPage < totalPages) && !loading) && <button disabled={loadMore} className="btn btn-primary btn-loadmore mr-auto ml-auto mb-5 mt-5" onClick={getMoreResult}> {loadMore ? i18n.loading : i18n.loadmore} </button>}

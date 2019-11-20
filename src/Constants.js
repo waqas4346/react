@@ -6,9 +6,9 @@
 // export const DT_PROJECT_ID = "2";
 // export const DT_SECRET_KEY = "93d7797ec6a47e97350f0f2276742c";
 
-export const DRAMATIME_URL = "http://dramatime.khaleef.com";
+export const DRAMATIME_URL = "http://44.226.84.16:8081";
 export const DT_PROJECT_ID = "1";
-export const DT_SECRET_KEY = "01b6f865d0bff7e7a438a5f76220ca";
+export const DT_SECRET_KEY = "699cc2ea457a769f2ee58537d60f03";
 
 export const KCMS_URL = "http://solutionsmodo.com";
 export const KCMS_PROJECT_ID = "7"

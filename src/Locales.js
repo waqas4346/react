@@ -29,9 +29,9 @@ const en = {
     dontrecievepin: 'Didn’t Receive the Pin?',
     resendpin: 'Resend Pin',
     
-    zainpricepoints: 'The service price is 1 SAR per day and renewed daily. To cancel your subscription please send U3 to 705855.',
-    stcpricepoints: 'The service price is 1 SAR per day and renewed daily. To cancel your subscription please send U3 to 606156.',
-    mobilypricepoints: 'The service price is 1 SAR per day and renewed daily. To cancel your subscription please send U 6 to 801615.',
+    zainpricepoints: 'The service price is 0.66 SAR per day and renewed daily. To cancel your subscription please send U1 to 751164.',
+    stcpricepoints: 'The service price is 0.65 SAR per day and renewed daily. To cancel your subscription please send U1 to 801761.',
+    mobilypricepoints: 'The service price is 1 SAR per day and renewed daily. To cancel your subscription please send U6 to 606156.',
 
 
     //VideoPlayer, RelatedContent
@@ -39,6 +39,7 @@ const en = {
     loadmore: 'Load More',
     loading: 'Loading ...',
     searchresult: 'Search Result For ',
+    norelatedcontent: 'No related content to show. ',
 
     //Search
     all: 'All',
@@ -99,9 +100,9 @@ const ur = {
     confirmpinerrmsg: 'پن کی تصدیق کرنے سے قاصر ، براہ کرم دوبارہ کوشش کریں!',
     dontrecievepin: 'پن موصول نہیں ہوا؟',
     resendpin: 'پن دوبارہ بھیجیں',
-    zainpricepoints: 'سروس کی قیمت س۔ر 1 روزانہ ہے اور روزانہ تجدید ہو گی. سبسکرپشن ختم کرنے کیلئے برائے مہربانی U3 لکھ کر 705855 پر بھیجیں.',
-    stcpricepoints: 'سروس کی قیمت س۔ر 1 روزانہ ہے اور روزانہ تجدید ہو گی. سبسکرپشن ختم کرنے کیلئے برائے مہربانی U3 لکھ کر 606156 پر بھیجیں.',
-    mobilypricepoints: 'سروس کی قیمت س۔ر 1 روزانہ ہے اور روزانہ تجدید ہو گی. سبسکرپشن ختم کرنے کیلئے برائے مہربانی U6 لکھ کر 801615 پر بھیجیں.',
+    zainpricepoints: 'سروس کی قیمت س۔ر 0.66 روزانہ ہے اور روزانہ تجدید ہو گی. سبسکرپشن ختم کرنے کیلئے برائے مہربانی U1 لکھ کر 751164 پر بھیجیں.',
+    stcpricepoints: 'سروس کی قیمت س۔ر 0.65 روزانہ ہے اور روزانہ تجدید ہو گی. سبسکرپشن ختم کرنے کیلئے برائے مہربانی U1 لکھ کر 801761 پر بھیجیں.',
+    mobilypricepoints: 'سروس کی قیمت س۔ر 1 روزانہ ہے اور روزانہ تجدید ہو گی. سبسکرپشن ختم کرنے کیلئے برائے مہربانی U6 لکھ کر 606156 پر بھیجیں.',
 
 
     //VideoPlayer, RelatedContent, Search
@@ -109,7 +110,8 @@ const ur = {
     loadmore: 'مزید لوڈ کریں',
     loading: 'لوڈ ہو رہا ہے…',
     searchresult: 'تلاش کے نتائج',
-
+    norelatedcontent: 'کوئی مواد نہیں ملا',
+    
     //Search
     all: 'سب',
     movies: 'موویز',

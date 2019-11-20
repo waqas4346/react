@@ -11,11 +11,12 @@ const Login = (props) => {
 
     const [code, setcode] = useState("966")
     const [number, setnumber] = useState("");
-    const [telco, settelco] = useState("zain");
+    const [telco, settelco] = useState("mt2_subscription");
     const [pin, setpin] = useState("");
     const [showPin, setshowPin] = useState(false);
     const [errMesg, seterrMsg] = useState("")
     const [btnText, setbtnText] = useState(i18n.continue)
+    const [userID, setUserID] = useState(null)
 
 
     const checkORCreateUser = async (telco, code, number) => {
@@ -46,8 +47,10 @@ const Login = (props) => {
                 url = `${DRAMATIME_URL}/api/user/app_start?web_user=1&project_id=${DT_PROJECT_ID}&secret_key=${DT_SECRET_KEY}&telco=${telco}&phone_no=${code + number}`
                 resp = await fetch(url)
                 respObj = await respObj.json()
+                console.log('Creating new user ...', respObj)
             }
-
+            
+            
             console.log("app start ->", respObj)
             if (respObj.status === 1 && respObj.user.subscribe_status === 1) {
                 props.setUser(respObj.user, true)
@@ -57,7 +60,8 @@ const Login = (props) => {
                 setbtnText(i18n.continue)
 
             } else {
-                sendPin(telco, code, number)
+                sendPin(telco, code, number, respObj.user.id)
+                setUserID(respObj.user.id)
             }
 
         } catch (e) {
@@ -68,14 +72,14 @@ const Login = (props) => {
 
     }
 
-    const sendPin = async (telco, code, number) => {
+    const sendPin = async (telco, code, number, userID) => {
 
         localStorage.setItem('telco', telco)
 
         seterrMsg("")
         try {
 
-            const url = `${DRAMATIME_URL}/telco/${telco}/send_pin?web_user=1&telco=${telco}&project_id=${DT_PROJECT_ID}&secret_key=${DT_SECRET_KEY}&msisdn=${code + number}`
+            const url = `${DRAMATIME_URL}/telco/${telco}/send_pin?web_user=1&telco=${telco}&project_id=${DT_PROJECT_ID}&secret_key=${DT_SECRET_KEY}&msisdn=${code + number}&user_id=${userID}`
             let resp = await fetch(url)
             let respObj = await resp.json()
             console.log('Send pin resp ->', respObj)
@@ -97,7 +101,7 @@ const Login = (props) => {
 
     }
 
-    const confirmPin = async (telco, code, number, pin) => {
+    const confirmPin = async (telco, code, number, pin, userID) => {
 
         seterrMsg("")
         if (!pin) {
@@ -109,18 +113,18 @@ const Login = (props) => {
         try {
             setbtnText(i18n.pleasewait)
 
-            const url = `${DRAMATIME_URL}/telco/${telco}/confirm_pin_n_subscribe?web_user=1&telco=${telco}&project_id=${DT_PROJECT_ID}&secret_key=${DT_SECRET_KEY}&msisdn=${code + number}&pin=${pin}`
+            const url = `${DRAMATIME_URL}/telco/${telco}/confirm_pin_n_subscribe?web_user=1&telco=${telco}&project_id=${DT_PROJECT_ID}&secret_key=${DT_SECRET_KEY}&msisdn=${code + number}&pin=${pin}&user_id=${userID}`
             let resp = await fetch(url)
             let respObj = await resp.json()
             console.log('confirm pin resp', respObj)
-            if (respObj.status === 1) {
+            if (respObj.status === 1 && respObj.user.subscribe_status === 1) {
                 setTimeout(function () {
                     props.setUser(respObj.user, true)
                 }, 2000)
             }
             else {
                 seterrMsg(i18n.confirmpinerrmsg)
-                setshowPin(true)
+                setshowPin(false)
             }
 
             setbtnText(i18n.subscribe)
@@ -170,14 +174,14 @@ const Login = (props) => {
                                     <div className="row">
                                         <div className=" col form-group carrier pr-0">
                                             <select className="dt-select w-100" onChange={e => { settelco(e.target.value) }}>
-                                                <option value="zain"> Zain </option>
+                                                <option value="mt2_subscription"> Zain </option>
                                                 <option value="stc"> Stc </option>
                                                 <option value="mobily"> Mobily </option>
                                             </select>
                                         </div>
                                         <div style={{ borderBottom: '1px solid rgba(134,140,154,0.6)', width: '100%', marginBottom: '20px' }}></div>
                                     </div>
-                                    {telco === 'zain' && <div className="row">
+                                    {telco === 'mt2_subscription' && <div className="row">
                                         <div className="col">
                                             <p className="text-center"> {i18n.zainpricepoints} </p>
                                         </div>
@@ -242,7 +246,7 @@ const Login = (props) => {
                                             <button variant="primary" type="submit" onClick={
                                                 (e) => {
                                                     e.preventDefault();
-                                                    confirmPin(telco, code, number, pin);
+                                                    confirmPin(telco, code, number, pin, userID);
                                                 }}
                                                 className='btn-next btn btn-primary'>
                                                 {btnText}

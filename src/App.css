@@ -2903,4 +2903,7 @@ cursor: pointer;
       .nav-tabs .nav-item {
         padding: 0 5px !important;
     }
+    .pl-xxs-0{
+      padding-left: 0 !important;
+    }
   }

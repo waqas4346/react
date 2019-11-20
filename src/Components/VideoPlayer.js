@@ -81,7 +81,7 @@ const LessText = ({ text, maxLength }) => {
             <div className="col-11 text-light mb-3 ">
                <p> {hidden ? `${text.substr(0, maxLength).trim()} ...` : text}</p>
             </div>
-            <div className="col-1 text-right">
+            <div className="col-1 text-right pl-xxs-0">
                 {hidden ?
                     <span onClick={() => setHidden(false)} className="dt-icon-down-arrow"></span>
                     :

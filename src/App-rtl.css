@@ -67,7 +67,7 @@ form p{
     text-align: center !important;
 }
 
-.text-left, .video-description {
+.list-unstyled .text-left, .video-description {
     text-align: right !important;
 }
 .video-description .text-right, .title-description .text-lg-right  {
