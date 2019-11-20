@@ -28,8 +28,13 @@ p {
 .continue-watching-slide h2.imgTitle, .slick-slide h2.imgTitle, .imgTitle, .menu > ol .sub-menu li a, form p {
     font-size: 0.8rem;
 }
-.menu > ol .sub-menu li a i{
+.menu > ol .sub-menu li a i {
     margin-left: 10px;
+    float: right;
+    margin-right: 0 !important;
+    margin-top: 3px;
+    font-weight: 500;
+    font-size: 1rem;
 }
 .continue-watching-slide h2.imgTitle, .slick-slide h2.imgTitle, .imgTitle, .title-description h5{
     padding: 10px 0 10px 0;
@@ -332,6 +337,9 @@ margin-left: 10px;
         right: auto;
         left: 15px;
         direction: rtl;
+    }
+    .search__icon{
+        top: 14px;
     }
     .search__field:focus {
         left: 0%;

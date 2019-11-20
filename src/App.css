@@ -622,7 +622,11 @@ a.icon-chromecast:focus {
   background-color:transparent;
 }
 .nav-tabs {
-  border-bottom: 1px solid #05f2db !important;
+  /* border-bottom: 1px solid #05f2db !important; */
+
+  border-bottom: none !important;
+  background-color: rgba(255,255,255,0.05);
+  border-radius: 2rem;
 }
 .nav-link {
   position: relative;
@@ -630,6 +634,10 @@ a.icon-chromecast:focus {
 }
 .nav-tabs .nav-link {
   color: #eee;
+  cursor: pointer;
+
+  border: 1px solid transparent;
+  border-radius: 2.25rem !important;
 }
 
 .nav-tabs .nav-link:hover,
