@@ -13,7 +13,8 @@ class TopNavbar extends Component {
       addClass: false,
       addProfile: false,
       showClass: false,
-      slistView: null,
+      view: [],
+      listView: null,
       newCatList: [],
       query: '',
       prevScrollpos: window.pageYOffset,
@@ -36,7 +37,7 @@ class TopNavbar extends Component {
       const respObj = await resp.json();
       this.setState({ newCatList: respObj.data })
     } catch (e) {
-      console.log("Error in new category list", e.message)
+      console.log("Error in new category lissetListViewt", e.message)
     }
   }
 
@@ -45,6 +46,10 @@ class TopNavbar extends Component {
       const url = `${KCMS_URL}/api/project/${KCMS_SECRET_KEY}/${KCMS_PROJECT_ID}/list_views`
       let resp = await fetch(url);
       let respObj = await resp.json();
+      let catData = respObj.view_lists.filter(item => item.is_new_release === false);
+      this.setState({view: catData})
+      this.props.setViewLists(catData)
+      console.log('List view:', respObj)
       let self = this;
       await respObj.view_lists.map(async (item) => {
         if (item.is_new_release) {
@@ -233,7 +238,9 @@ class TopNavbar extends Component {
           <button className="navbar-toggler" type="button" onClick={this.toggle.bind(this)}>
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="navbar-brand">
+          <div className="navba            console.log('view list in category', props.viewLists)
+
+r-brand">
             <Link to="/">
 
               <img src="/logo.svg" alt="" className="logo" width="100%" />
@@ -265,7 +272,17 @@ class TopNavbar extends Component {
                 <div className="menu-container">
                   <nav className="menu w-100">
                     <ol className="">
-                      <li className={"menu-item " + (window.location.pathname === "/" ? 'active' : '')}  >
+
+                      {
+                        this.state.view && this.state.view.map(item=>{
+                          return(
+                            <li key={'nav'+item.id} className={"menu-item " + (window.location.pathname === `/${item.id}` ? 'active' : '')}  >
+                              <Link to={`/${item.id}`}> {this.props.lang ==='' ? item.name:item['title'+this.props.lang]} </Link>
+                            </li>
+                          )
+                        })
+                      }
+                      {/* <li className={"menu-item " + (window.location.pathname === "/" ? 'active' : '')}  >
                         <Link to="/"> {i18n.home} </Link>
                       </li>
                       <li className={"menu-item " + (window.location.pathname === "/dramas" ? 'active' : '')}>
@@ -276,7 +293,7 @@ class TopNavbar extends Component {
                       </li>
                       <li className={"menu-item " + (window.location.pathname === "/video-songs" ? 'active' : '')}>
                         <Link to="/video-songs"> {i18n.videosongs} </Link>
-                      </li>
+                      </li> */}
                       {
                         this.state.newCatList.length > 0 && <li className={"menu-item  " + (window.location.pathname === "/newrelease" ? 'active' : '')}>
 

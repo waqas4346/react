@@ -232,6 +232,14 @@ margin-left: 10px;
     opacity: 0.6;
     font-size: 0.95rem;
 }
+
+.slick-track{
+    margin-right: 0 !important;
+}
+.slick-slider > .slick-list {
+    margin-left: 0 !important;
+    padding: 0 !important;
+}
 /*******responsive**********/
 
 @media (min-width: 990px){

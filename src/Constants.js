@@ -11,8 +11,8 @@ export const DT_PROJECT_ID = "1";
 export const DT_SECRET_KEY = "699cc2ea457a769f2ee58537d60f03";
 
 export const KCMS_URL = "http://solutionsmodo.com";
-export const KCMS_PROJECT_ID = "7"
-export const KCMS_SECRET_KEY = "e53dd96aa1ea426221ba488af0809c"
+export const KCMS_PROJECT_ID = "13"
+export const KCMS_SECRET_KEY = "78deb9b2b54bc770b970f377288c89"
 
 
 

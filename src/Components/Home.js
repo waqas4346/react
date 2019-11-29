@@ -16,7 +16,8 @@ const Home = (props) => {
     const setHomeState = async () => {
       try {
         setLoading(true);
-        const url = `${KCMS_URL}/api/project/${KCMS_SECRET_KEY}/${KCMS_PROJECT_ID}/show_list_view/5`
+
+        const url = `${KCMS_URL}/api/project/${KCMS_SECRET_KEY}/${KCMS_PROJECT_ID}/show_list_view/${props.viewLists[0].id}`
         let resp = await fetch(url);
         let respObj = await resp.json();
         setHome(respObj.data.view_list_project_categories)
@@ -27,9 +28,8 @@ const Home = (props) => {
       }
     }
 
-
-    setHomeState();
-  }, [])
+    if(props.viewLists.length > 0) setHomeState();
+  }, [props.viewLists])
 
 
   return (

@@ -112,7 +112,7 @@ const RelatedContent = (props) => {
                                                         width={item.sub_content_type === 'movie' ? '110px' : '100%'}
                                                         height={'autos'}
                                                         className="rounded bgsimple"
-                                                        src={item.sub_content_type === 'movie' ? item.custom_thumbnails.original : item.thumbs.medium}
+                                                        src={item.sub_content_type === 'movie' ? item.thumbnails[0].mobile_n_movie : item.thumbs.medium}
                                                         alt=""
                                                     /></div>
                                                 <div className="row col-7 pl-1 position-relative">

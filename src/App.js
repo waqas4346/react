@@ -22,6 +22,7 @@ import VideoSongs from './Components/VideoSongs';
 import Footer from './Components/Footer';
 import Privacy from './Components/Privacy';
 import ScrollToTop from './Components/ScrollToTop'
+import Category from './Components/Category';
 
 class App extends Component {
 
@@ -31,10 +32,12 @@ class App extends Component {
     this.state = {
       user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : {},
       loggedIn: localStorage.getItem('user') ? true : false,
-      lang: localStorage.getItem('lang') || '' // for en we dont need any type
+      lang: localStorage.getItem('lang') || '', // for en we dont need any type
+      view_lists: []
     }
     this.setUser = this.setUser.bind(this);
     this.setLang = this.setLang.bind(this);
+    this.setViewLists = this.setViewLists.bind(this);
   }
 
 
@@ -74,6 +77,11 @@ class App extends Component {
 
   }
 
+  setViewLists(list) {
+    console.log('lit', list)
+    this.setState({view_lists: list})
+  }
+
   async getUserDetails(number) {
 
     if (!this.state.loggedIn) {
@@ -95,17 +103,21 @@ class App extends Component {
               <div className="row">
                 <div className="col pl-0 pr-0 wrapper">
 
-                  <TopNavbar props={this.props} isUser={this.state.loggedIn} setUser={this.setUser} userData={this.state.user} setLang={this.setLang} lang={this.state.lang}/>
+                  <TopNavbar props={this.props}  setViewLists={this.setViewLists} isUser={this.state.loggedIn} setUser={this.setUser} userData={this.state.user} setLang={this.setLang} lang={this.state.lang}/>
 
-                  <Route exact path="/" render={(props) => <Home {...props} lang={this.state.lang}></Home>} />
-                  <Route exact path="/dramas" render={(props) => <Dramas {...props} lang={this.state.lang}></Dramas>} />
+                  <Route exact path="/" render={(props) => <Home {...props} lang={this.state.lang} viewLists={this.state.view_lists}></Home>} />
+                  {/* <Route exact path="/dramas" render={(props) => <Dramas {...props} lang={this.state.lang}></Dramas>} />
                   <Route exact path="/telefilms" render={(props) => <Telefilms {...props} lang={this.state.lang}></Telefilms>} />
-                  <Route exact path="/video-songs" render={(props) => <VideoSongs {...props} lang={this.state.lang}></VideoSongs>} />
+                  <Route exact path="/video-songs" render={(props) => <VideoSongs {...props} lang={this.state.lang}></VideoSongs>} /> */}
                   <Route exact path="/newrelease" render={(props) => <NewRelease {...props} lang={this.state.lang}></NewRelease>} />
                   <Route exact path="/search" render={(props) => <Search {...props} lang={this.state.lang}></Search>} />
                   <Route exact path="/play" render={(props) => <Play {...props} isUser={this.state.loggedIn} userData={this.state.user} setUser={this.setUser} lang={this.state.lang}></Play>} />
                   <Route exact path="/profile" render={(props) => <Profile {...props} isUser={this.state.loggedIn} userData={this.state.user} setUser={this.setUser} lang={this.state.lang}></Profile>} />
                   <Route exact path="/privacy" render={(props) => <Privacy {...props} ></Privacy>} />
+
+                  <Route exact path="/:id" render={(props) => <Category {...props} lang={this.state.lang} ></Category>} />
+
+                  
 
                 </div>
               </div>
