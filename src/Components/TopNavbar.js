@@ -159,7 +159,19 @@ class TopNavbar extends Component {
 
                 <ul className="sidebar-nav">
 
-                  <li className={"sidebar-item new-items " + (window.location.pathname === "/" ? 'active' : '')}>
+                  {
+                    this.state.view && this.state.view.map(item=>{
+                      return(
+                        <li key={`side-nav-${item.id}`} className={"sidebar-item new-items " + (window.location.pathname === `/${item.id}` ? 'active' : '')}>
+                          <Link to={`/${item.id}`} className="sidebar-link" onClick={this.toggle.bind(this)}>
+                            <i className="dt-icon-home"></i> <span className="align-middle">{this.props.lang ==='' ? item.name:item['title'+this.props.lang]}</span>
+                          </Link>
+                        </li>
+                      )
+                    })
+                  }
+
+                  {/* <li className={"sidebar-item new-items " + (window.location.pathname === "/" ? 'active' : '')}>
                     <Link to="/" className="sidebar-link" onClick={this.toggle.bind(this)}>
                       <i className="dt-icon-home"></i> <span className="align-middle">{i18n.home}</span>
                     </Link>
@@ -178,7 +190,7 @@ class TopNavbar extends Component {
                     <Link to="/video-songs" className="sidebar-link" onClick={this.toggle.bind(this)}>
                       <i className="dt-icon-video-songs"></i> <span className="align-middle">{i18n.videosongs}</span>
                     </Link>
-                  </li>
+                  </li> */}
 
                   <li className={"sidebar-item new-items " + (window.location.pathname === "/newrelease" ? 'active' : '')}>
                     <Link to="" data-toggle="collapse" className={"sidebar-link " + changeLink.join(' ')} onClick={this.toggleLink.bind(this)}>
@@ -238,9 +250,7 @@ class TopNavbar extends Component {
           <button className="navbar-toggler" type="button" onClick={this.toggle.bind(this)}>
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="navba            console.log('view list in category', props.viewLists)
-
-r-brand">
+          <div className="navbar-brand">
             <Link to="/">
 
               <img src="/logo.svg" alt="" className="logo" width="100%" />
