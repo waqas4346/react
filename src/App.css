@@ -943,7 +943,7 @@ a.sidebar-link {
   font-size: 1.6rem;
   color: #f5f5f5;
   fill: #f5f5f5;
-  margin-right: 15px;
+  margin-right: 3px;
 }
 .sidebar-item.new-items.active a {
   opacity: 1;
