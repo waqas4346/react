@@ -114,8 +114,7 @@ class App extends Component {
                   <Route exact path="/play" render={(props) => <Play {...props} isUser={this.state.loggedIn} userData={this.state.user} setUser={this.setUser} lang={this.state.lang}></Play>} />
                   <Route exact path="/profile" render={(props) => <Profile {...props} isUser={this.state.loggedIn} userData={this.state.user} setUser={this.setUser} lang={this.state.lang}></Profile>} />
                   <Route exact path="/privacy" render={(props) => <Privacy {...props} ></Privacy>} />
-
-                  <Route exact path="/:id" render={(props) => <Category {...props} lang={this.state.lang} ></Category>} />
+                  <Route exact path="/category/:id" render={(props) => <Category {...props} lang={this.state.lang} ></Category>} />
 
                   
 

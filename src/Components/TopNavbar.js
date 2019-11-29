@@ -162,8 +162,8 @@ class TopNavbar extends Component {
                   {
                     this.state.view && this.state.view.map(item=>{
                       return(
-                        <li key={`side-nav-${item.id}`} className={"sidebar-item new-items " + (window.location.pathname === `/${item.id}` ? 'active' : '')}>
-                          <Link to={`/${item.id}`} className="sidebar-link" onClick={this.toggle.bind(this)}>
+                        <li key={`side-nav-${item.id}`} className={"sidebar-item new-items " + (window.location.pathname === `/category/${item.id}` ? 'active' : '')}>
+                          <Link to={`/category/${item.id}`} className="sidebar-link" onClick={this.toggle.bind(this)}>
                             <i className="dt-icon-home"></i> <span className="align-middle">{this.props.lang ==='' ? item.name:item['title'+this.props.lang]}</span>
                           </Link>
                         </li>
@@ -286,8 +286,8 @@ class TopNavbar extends Component {
                       {
                         this.state.view && this.state.view.map(item=>{
                           return(
-                            <li key={'nav'+item.id} className={"menu-item " + (window.location.pathname === `/${item.id}` ? 'active' : '')}  >
-                              <Link to={`/${item.id}`}> {this.props.lang ==='' ? item.name:item['title'+this.props.lang]} </Link>
+                            <li key={'nav'+item.id} className={"menu-item " + (window.location.pathname === `/category/${item.id}` ? 'active' : '')}  >
+                              <Link to={`/category/${item.id}`}> {this.props.lang ==='' ? item.name:item['title'+this.props.lang]} </Link>
                             </li>
                           )
                         })
