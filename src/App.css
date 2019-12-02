@@ -154,8 +154,8 @@ button:focus {
   /* height: 50px;
   margin-top: 14px; */
   margin-top: 19px;
-  margin-left: 35px;
   /* float: left; */
+  margin-left: 35px;
 }
 /****end topbar**/
 /*******carousel**********/
@@ -1512,7 +1512,7 @@ a.dt-icon-download:focus {
   position: absolute;
   top: 50%;
   display: block;
-  width: 15% !important;
+  width: 7% !important;
   height: 100% !important;
   padding: 0;
   transform: translate(0, -50%);
@@ -2545,7 +2545,6 @@ figcaption.figcaption-4bnr-incremnt {
 @media (min-width: 1025px) {
   .slick-slider:hover .slick-arrow {
     cursor: pointer;
-    background: black;
     height: 100%;
     width: 8%;
     padding: 0;
@@ -2969,10 +2968,6 @@ figcaption.figcaption-4bnr-incremnt {
   .img-container {
     width: 50%;
   }
-  /* .container.title-description {
-      width: 90% !important;
-      max-width: 90% !important;
-     } */
   .favourites-tabs {
     margin-top: -62px;
   }
