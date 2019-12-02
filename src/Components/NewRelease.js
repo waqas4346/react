@@ -8,8 +8,6 @@ import { KCMS_URL, KCMS_SECRET_KEY, KCMS_PROJECT_ID } from '../../src/Constants'
 
 
 const videoSongsFragment = (newCatListData, viewType) => {
-    console.log('New release data', newCatListData)
-    console.log('content' in newCatListData[0])
     return (
         <Fragment>
             <Link to={{
@@ -61,7 +59,6 @@ const videoSongsFragment = (newCatListData, viewType) => {
 
 
 const moviesFragment = (newCatListData, viewType) => {
-
     return (
         <Fragment>
             <Link to={{
@@ -70,7 +67,7 @@ const moviesFragment = (newCatListData, viewType) => {
             }}>
                 <div className="new-rel-container">
                     <img
-                        src={newCatListData[0].content ? newCatListData[0].content[0].custom_thumbnails.original : newCatListData[0].custom_thumbnails.original} alt='' />
+                        src={newCatListData[0].content ? newCatListData[0].thumbnails[0].mobile_n_movie : newCatListData[0].custom_thumbnails.original} alt='' />
                     <span> <img src="icon-play.svg" alt='' /> </span>
                     <figcaption className="figcaption-4bnr-incremnt">
                         <h1 className="">&nbsp;</h1>
@@ -81,7 +78,7 @@ const moviesFragment = (newCatListData, viewType) => {
                 <div className="row">
                     {
                         newCatListData.map((item, index) => {
-                            let imgSrc = (item.content ? item.content[0].custom_thumbnails.original : item.custom_thumbnails.original);
+                            let imgSrc = (item.content ? item.thumbnails[0].mobile_n_movie : item.custom_thumbnails.original);
                             if (index > 0) {
                                 return (
                                     <div className="img-container pl-1 pr-1" key={item.id}>
@@ -185,8 +182,8 @@ const NewRelease = (props) => {
                 {viewType.indexOf("landscape") >= 0 && anyOtherTypeFragment(newCatListData, viewType)}
             </div>
         </Fragment>
-            :
-            <Loader />
+        :
+        <Loader />
 
     );
 

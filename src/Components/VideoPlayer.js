@@ -73,8 +73,14 @@ const ShareVideo = (props) => {
 
 const LessText = ({ text, maxLength }) => {
     const [hidden, setHidden] = useState(true);
-    if (text <= maxLength) {
-        return <span>{text}</span>;
+    if (text.length <= maxLength) {
+        return(
+            <div className="row m-row-urdu">
+                <div className="col text-light mb-3 ">
+                <p> {text}</p>
+                </div>
+            </div>
+        )
     }
     return (
         <div className="row m-row-urdu">
@@ -207,7 +213,7 @@ const renderVideo = (props) => {
                                 <div className="col d-block video-description d-md-none mt-3 pl-0 pr-0">
                                     <LessText
                                         text={props.data['description'+props.lang]}
-                                        maxLength={120}
+                                        maxLength={100}
                                     />
                                 </div>
                         } {
@@ -215,7 +221,7 @@ const renderVideo = (props) => {
                                 <div className="col d-none d-md-block video-description mt-3 pl-0 pr-0">
                                     <LessText
                                         text={props.data['description'+props.lang]}
-                                        maxLength={160}
+                                        maxLength={300}
                                     />
 
                                 </div>
