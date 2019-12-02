@@ -8,15 +8,17 @@ import { KCMS_URL, KCMS_SECRET_KEY, KCMS_PROJECT_ID } from '../../src/Constants'
 
 
 const videoSongsFragment = (newCatListData, viewType) => {
+    console.log('New release data', newCatListData)
+    console.log('content' in newCatListData[0])
     return (
         <Fragment>
             <Link to={{
                 pathname: "/play",
-                state: newCatListData[0].content ? newCatListData[0].content[0] : newCatListData[0]
+                state: 'content' in newCatListData[0] ? newCatListData[0].content[0] : newCatListData[0]
             }}>
                 <div className="new-rel-container">
                     <img
-                        src={newCatListData[0].content ? newCatListData[0].content[0].thumbs.original : newCatListData[0].thumbs.original}
+                        src={'content' in newCatListData[0] ? newCatListData[0].content[0].thumbs.original : newCatListData[0].thumbs.original}
                         alt=''
                     />
                     <span> <img src="icon-play.svg" alt='' /> </span>
@@ -29,16 +31,16 @@ const videoSongsFragment = (newCatListData, viewType) => {
                 <div className="row">
                     {
                         newCatListData.map((item, index) => {
-                            let imgSrc = (item.content ? item.content[0].custom_thumbnails.original : item.custom_thumbnails.original);
+                            let imgSrc = ('content' in item ? item.content[0].custom_thumbnails.original : item.custom_thumbnails.original);
                             if (index > 0) {
                                 return (
 
                                     <div className="img-container pl-1 pr-1 vsongs col-4 col-sm-3 col-md-2" key={item.id}>
-                                        <Link to={{ pathname: "/play", state: item.content ? item.content[0] : item }}>
+                                        <Link to={{ pathname: "/play", state: ('content' in item)  ? item.content[0] : item }}>
                                             <img
                                                 className="imgThumb imgThumbSqr"
                                                 src={imgSrc}
-                                                alt=""
+                                                
                                             />
                                             <div className="icon-play-songs"></div>
                                         </Link>

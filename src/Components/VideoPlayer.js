@@ -17,19 +17,19 @@ const getOS = () => {
 
     if (macosPlatforms.indexOf(platform) !== -1) {
         os = 'Mac OS';
-        window.location = 'https://apps.apple.com/us/app/dramatime-app/id1356475302?ls=1'
+        window.location = 'https://apps.apple.com/us/app/vbox-zain/id1124396745?ls=1'
     } else if (iosPlatforms.indexOf(platform) !== -1) {
         os = 'iOS';
-        window.location = 'https://apps.apple.com/us/app/dramatime-app/id1356475302?ls=1'
+        window.location = 'https://apps.apple.com/us/app/vbox-zain/id1124396745?ls=1'
     } else if (windowsPlatforms.indexOf(platform) !== -1) {
         os = 'Windows';
-        window.location = 'https://play.google.com/store/apps/details?id=com.kh.dramatime&hl=en'
+        window.location = 'https://play.google.com/store/apps/details?id=com.kh.vbox'
     } else if (/Android/.test(userAgent)) {
         os = 'Android';
-        window.location = 'https://play.google.com/store/apps/details?id=com.kh.dramatime&hl=en'
+        window.location = 'https://play.google.com/store/apps/details?id=com.kh.vbox'
     } else if (!os && /Linux/.test(platform)) {
         os = 'Linux';
-        window.location = 'https://play.google.com/store/apps/details?id=com.kh.dramatime&hl=en'
+        window.location = 'https://play.google.com/store/apps/details?id=com.kh.vbox'
     }
 
     return os;
@@ -59,9 +59,9 @@ const ShareVideo = (props) => {
             {
                 hide && <div className="row justify-content-end social-sharing">
                     <div className="col">
-                        <a className="secondary-button mr-2" target="blank" href={`https://www.facebook.com/sharer/sharer.php?u=dramatime.mobi?video=${props.data.id}`}><i className="lni-facebook-filled"></i></a>
-                        <a className="secondary-button mr-2" target="blank" href={`https://twitter.com/intent/tweet?text=dramatime.mobi?video=${props.data.id}`}><i className="lni-twitter-filled"></i></a>
-                        <a className="secondary-button" target="blank" href={`whatsapp://send?text=dramatime.mobi?video=${props.data.id}`} data-action="share/whatsapp/share"><i className="lni-whatsapp"></i></a>
+                        <a className="secondary-button mr-2" target="blank" href={`https://www.facebook.com/sharer/sharer.php?u=vbox.mobi?video=${props.data.id}`}><i className="lni-facebook-filled"></i></a>
+                        <a className="secondary-button mr-2" target="blank" href={`https://twitter.com/intent/tweet?text=vbox.mobi?video=${props.data.id}`}><i className="lni-twitter-filled"></i></a>
+                        <a className="secondary-button" target="blank" href={`whatsapp://send?text=vbox.mobi?video=${props.data.id}`} data-action="share/whatsapp/share"><i className="lni-whatsapp"></i></a>
                     </div>
                 </div>
 
