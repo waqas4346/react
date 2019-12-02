@@ -2379,6 +2379,10 @@ figcaption.figcaption-4bnr-incremnt {
   text-align: justify;
   margin: 30px auto;
 }
+
+.jw-logo-button {
+  display: none !important;
+}
 /********************responsive media ********************/
 
 @media (max-width: 1600px) {
