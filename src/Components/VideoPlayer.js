@@ -5,7 +5,6 @@ import { DRAMATIME_URL, DT_SECRET_KEY, DT_PROJECT_ID, PLAYER_SCRIPT_URL } from '
 
 import i18n from '../Locales';
 
-//import { SimpleShareButtons } from "react-simple-share";
 
 const getOS = () => {
     var userAgent = window.navigator.userAgent,
@@ -59,9 +58,9 @@ const ShareVideo = (props) => {
             {
                 hide && <div className="row justify-content-end social-sharing">
                     <div className="col">
-                        <a className="secondary-button mr-2" target="blank" href={`https://www.facebook.com/sharer/sharer.php?u=vbox.mobi?video=${props.data.id}`}><i className="lni-facebook-filled"></i></a>
-                        <a className="secondary-button mr-2" target="blank" href={`https://twitter.com/intent/tweet?text=vbox.mobi?video=${props.data.id}`}><i className="lni-twitter-filled"></i></a>
-                        <a className="secondary-button" target="blank" href={`whatsapp://send?text=vbox.mobi?video=${props.data.id}`} data-action="share/whatsapp/share"><i className="lni-whatsapp"></i></a>
+                        <a className="secondary-button mr-2" target="blank" href={`https://www.facebook.com/sharer/sharer.php?u=vbox.mobi/play?video=${props.data.id}`}><i className="lni-facebook-filled"></i></a>
+                        <a className="secondary-button mr-2" target="blank" href={`https://twitter.com/intent/tweet?text=vbox.mobi/play?video=${props.data.id}`}><i className="lni-twitter-filled"></i></a>
+                        <a className="secondary-button" target="blank" href={`whatsapp://send?text=vbox.mobi/play?video=${props.data.id}`} data-action="share/whatsapp/share"><i className="lni-whatsapp"></i></a>
                     </div>
                 </div>
 
@@ -243,7 +242,7 @@ const VideoPlayer = (props) => {
     useEffect(() => { }, [props])
 
     return (
-        'streaming_url' in props.data ? renderLiveChannel(props) : renderVideo(props)
+        'streaming_url' in props.data ? renderLiveChannel(props) : renderVideo(props)   
     );
 }
 

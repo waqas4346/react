@@ -12,13 +12,13 @@ import { DRAMATIME_URL, DT_SECRET_KEY, DT_PROJECT_ID } from '../src/Constants';
 
 import TopNavbar from './Components/TopNavbar'
 import Home from './Components/Home';
-import Dramas from './Components/Dramas';
-import Telefilms from './Components/Telefilms';
+// import Dramas from './Components/Dramas';
+// import Telefilms from './Components/Telefilms';
 import Play from './Components/Play';
 import NewRelease from './Components/NewRelease';
 import Search from './Components/Search';
 import Profile from './Components/Profile';
-import VideoSongs from './Components/VideoSongs';
+// import VideoSongs from './Components/VideoSongs';
 import Footer from './Components/Footer';
 import Privacy from './Components/Privacy';
 import ScrollToTop from './Components/ScrollToTop'

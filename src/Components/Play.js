@@ -5,7 +5,7 @@ import Login from './Login';
 import RecentlyWatched from './RecentlyWatched';
 import { DRAMATIME_URL, DT_PROJECT_ID, DT_SECRET_KEY } from '../Constants';
 
-
+import {Helmet} from "react-helmet";
 
 const Play = (props) => {
 
@@ -34,24 +34,38 @@ const Play = (props) => {
 
 
     return (
-        props.isUser ?
-
-            videoContent && <Fragment>
-                <div className="play-container">
-                    <div className="row">
-                        <div className='col-lg-8 col-md-12 col-sm-12 col-xs-12'>
-                            <VideoPlayer data={props.location.state || videoContent} userData={props.userData} lang={props.lang}/>
-                            <RecentlyWatched  userData={props.userData} lang={props.lang}/>
-                            <div className="mb-4"></div>
-                        </div>
-                        <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                            <RelatedContent data={props.location.state || videoContent}  lang={props.lang}/>
+    
+        <div>
+            <Helmet>
+                    <meta property="og:url" content={"Cricket!"} />
+                    <meta property="og:type" content="article" />
+                    <meta property="og:title" content={'Vbox'} />
+                    <meta property="og:description" content= {props.location.state.description}   />  
+                    <meta property="og:image" content={ props.location.state.sub_content_type === 'movie' ? props.location.state.custom_thumbnails.original : props.location.state.thumbs.original} />
+                    <meta property="twitter:card" content="summary_large_image"/>        
+            </Helmet>
+    
+    
+            {props.isUser ?
+    
+                videoContent && <Fragment>
+                    <div className="play-container">
+                        <div className="row">
+                            <div className='col-lg-8 col-md-12 col-sm-12 col-xs-12'>
+                                <VideoPlayer data={props.location.state || videoContent} userData={props.userData} lang={props.lang}/>
+                                <RecentlyWatched  userData={props.userData} lang={props.lang}/>
+                                <div className="mb-4"></div>
+                            </div>
+                            <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                <RelatedContent data={props.location.state || videoContent}  lang={props.lang}/>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </Fragment>
-            :
-            <Login setUser={props.setUser} />
+                </Fragment>
+                :
+                <Login setUser={props.setUser} />}
+
+        </div>
     );
 }
 

@@ -7,7 +7,7 @@ import { KCMS_URL, KCMS_SECRET_KEY, KCMS_PROJECT_ID } from '../../src/Constants'
 import i18n from '../Locales';
 
 
-const PER_PAGE = 15;
+const PER_PAGE = 12;
 
 const videoSongsFragment = (data, viewType) => {
     return (
@@ -168,13 +168,13 @@ const NewRelease = (props) => {
         const getNewCatListData = async (data) => {
             try {
                 setData([])
-                const url = `${KCMS_URL}/api/project/${KCMS_SECRET_KEY}/${KCMS_PROJECT_ID}/get-list-view-item-data/${props.location.state}?page=1&per_page=10`
+                const url = `${KCMS_URL}/api/project/${KCMS_SECRET_KEY}/${KCMS_PROJECT_ID}/get-list-view-item-data/${props.location.state}?page=1&per_page=${PER_PAGE}`
                 const resp = await fetch(url);
                 const respObj = await resp.json();
                 console.log('totalPages', respObj)
                 setviewType(respObj.data.view_list_item_data.view_type)
                 setData(respObj.data.view_list_item_data.data);
-                if (respObj.data.view_list_item_data.data.length < 10) setTotalPages(currPage)
+                if (respObj.data.view_list_item_data.data.length < PER_PAGE) setTotalPages(currPage)
                 else setTotalPages(currPage + 1)
             } catch (e) {
                 console.log("Error in new category  list data", e.message)
@@ -190,7 +190,7 @@ const NewRelease = (props) => {
 
         let nextPage = currPage + 1;
 
-        const url = `${KCMS_URL}/api/project/${KCMS_SECRET_KEY}/${KCMS_PROJECT_ID}/get-list-view-item-data/${props.location.state}?page=${nextPage}&per_page=10`
+        const url = `${KCMS_URL}/api/project/${KCMS_SECRET_KEY}/${KCMS_PROJECT_ID}/get-list-view-item-data/${props.location.state}?page=${nextPage}&per_page=${PER_PAGE}`
         let resp = await fetch(url)
         let respObj = await resp.json()
         console.log('more results', respObj)
@@ -202,7 +202,7 @@ const NewRelease = (props) => {
             setData(data => [...data, item]);
         })
         
-        if (respObj.data.view_list_item_data.data.length < 10) setTotalPages(currPage)
+        if (respObj.data.view_list_item_data.data.length < PER_PAGE) setTotalPages(currPage)
         else setTotalPages(nextPage + 1)
         console.log(currPage, totalPages)
     }
