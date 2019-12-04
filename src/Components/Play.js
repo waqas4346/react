@@ -32,13 +32,14 @@ const Play = (props) => {
 
     }, [props.isUser, props.userData.phone])
 
+    
 
     return (
     
         <div>
             {videoContent && <Helmet>
-                    <meta property="og:url" content={"Cricket!"} />
-                    <meta property="og:type" content="article" />
+                    <meta property="og:url" content={"http://vbox.mobi"} />
+                    <meta property="og:type" content="Entertainment" />
                     <meta property="og:title" content={'Vbox'} />
                     <meta property="og:description" content= {videoContent.description}   />  
                     <meta property="og:image" content={ videoContent.sub_content_type === 'movie' ? videoContent.custom_thumbnails.original : videoContent.thumbs.original} />
