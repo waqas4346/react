@@ -36,14 +36,14 @@ const Play = (props) => {
     return (
     
         <div>
-            <Helmet>
+            {videoContent && <Helmet>
                     <meta property="og:url" content={"Cricket!"} />
                     <meta property="og:type" content="article" />
                     <meta property="og:title" content={'Vbox'} />
-                    <meta property="og:description" content= {props.location.state.description}   />  
-                    <meta property="og:image" content={ props.location.state.sub_content_type === 'movie' ? props.location.state.custom_thumbnails.original : props.location.state.thumbs.original} />
+                    <meta property="og:description" content= {videoContent.description}   />  
+                    <meta property="og:image" content={ videoContent.sub_content_type === 'movie' ? videoContent.custom_thumbnails.original : videoContent.thumbs.original} />
                     <meta property="twitter:card" content="summary_large_image"/>        
-            </Helmet>
+            </Helmet>}
     
     
             {props.isUser ?
