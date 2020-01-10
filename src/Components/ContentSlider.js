@@ -9,7 +9,7 @@ const ContentSlider = (props) => {
         infinite: false,
         speed: 500,
         slidesToShow:  (props.type.indexOf("movie") >= 0  ? 11.2: 7.2),
-        initialSlide: 1,
+        initialSlide: 0,
         slidesToScroll:2,
         arrows: true,
         responsive: [

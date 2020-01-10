@@ -10,7 +10,7 @@ const SquareTwoLiines = (props) => {
         speed: 500,
         slidesToShow: 10.2,
         slidesToScroll: 2,
-        initialSlide: 1,
+        initialSlide: 0,
         lazyLoad: false,
         rows: 1,
         arrows: true,
